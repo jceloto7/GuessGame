@@ -14,7 +14,6 @@ public class InputUtil {
         number = scanner.next();
         return number;
     }
-
     public void closeScanner(){
         scanner.close();
     }

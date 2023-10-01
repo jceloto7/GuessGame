@@ -14,7 +14,7 @@ public class GuessGame {
                Hello! Welcome to the Guess Game.
                Do you want to read the instructions? Please type 1 to 'yes' or 2 to 'no'""");
         stringOption = inputUtil.getInput();
-        charOption = validationUtil.validationChar(stringOption);
+        charOption = validationUtil.validationCharOption(stringOption);
         if(charOption == '1'){
             String showInstructions;
             showInstructions = screenUtil.gameInstructions();

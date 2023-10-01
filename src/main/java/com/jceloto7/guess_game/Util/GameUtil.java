@@ -3,18 +3,23 @@ package com.jceloto7.guess_game.Util;
 public class GameUtil {
 
     public void game(){
-        GetNumberUtil getNumberUtil = new GetNumberUtil();
-        int guessNumber;
-        guessNumber = getNumberUtil.getNumber();
         boolean loop = true;
 
         while(loop){
-            System.out.println("""
-                    The number has been generated.
-                    
-                                  Try 
-                    
-                    Please type one integer number from 1 to 100:""");
+            GetNumberUtil getNumberUtil = new GetNumberUtil();
+            int guessNumber;
+            guessNumber = getNumberUtil.getNumber();
+            ScreenUtil screenUtil = new ScreenUtil();
+            String guessTry;
+            InputUtil inputUtil = new InputUtil();
+
+            for(int tries =1; tries <=5; tries++){
+                screenUtil.gameTries(tries);
+                guessTry = inputUtil.getInput();
+
+
+
+            }
 
         }
 
