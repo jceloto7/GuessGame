@@ -21,28 +21,26 @@ public class ScreenUtil {
         return instructions;
     }
 
-    public String gameTries(int tries){
-        String stringTries;
-
-        stringTries = """
+    public void gameTries(int tries){
+        if (tries ==1){
+            System.out.println("""
                     The number has been generated.
                     
-                                  Try""" + tries + """
+                                  Try""" + " " + tries + """
                     
-                    Please type one integer number from 1 to 100:""";
-        return stringTries;
-    }
-
-    public String lastTry() {
-        String stringLastTry;
-
-        stringLastTry = """
+                    Please type one integer number from 1 to 100:""");
+        }else if(tries >1 && tries <5){
+            System.out.println("""
+                                 Try"""+ " " + tries + """
+                                       
+                    Please type one integer number:""");
+        }else {
+            System.out.println( """
                                Try 5
                     WARNING: This is your last shot to guess the number.
-                    Please type one integer number from 1 to 100:""";
+                    Please type one integer number:""");
 
-        return stringLastTry;
+        }
     }
-
 
 }

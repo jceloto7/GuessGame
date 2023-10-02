@@ -20,11 +20,9 @@ public class ValidationUtil {
 
     }
 
-    public int validationInt(String stringNumberGuess){
+    public double validationParsable(String stringNumberGuess){
         boolean validation;
-        int intNumber = 0;
-        double doubleNumber =0;
-        InputUtil inputUtil = new InputUtil();
+        double doubleNumber;
 
         validation = NumberUtils.isParsable(stringNumberGuess);
         while (!validation) {
@@ -34,17 +32,45 @@ public class ValidationUtil {
         }
         doubleNumber = Double.parseDouble(stringNumberGuess);
 
-        while (doubleNumber <0 && doubleNumber >100 && doubleNumber%1 ==0)
-        intNumber = Integer.parseInt(stringNumberGuess);
+        return doubleNumber;
 
-        double a = doubleNumber;
-        int b = (int) doubleNumber;
-        double c = a - b;
+    }
 
+    public int validationInt(double doubleNumber){
+        int intNumber;
+        String stringNumberGuess;
+        ValidationUtil validationUtil = new ValidationUtil(inputUtil);
+        int intTest = (int) doubleNumber;
+
+        double validation = doubleNumber - intTest;
+
+        while(validation !=0){
+            System.out.println("Invalid number. Please enter an integer one.");
+            stringNumberGuess = inputUtil.getInput();
+            doubleNumber = validationUtil.validationParsable(stringNumberGuess);
+            intTest = (int) doubleNumber;
+            validation = doubleNumber - intTest;
+        }
+
+        intNumber = (int) doubleNumber;
         return intNumber;
 
     }
 
+    public int validationGame(int intNumber){
+        ValidationUtil validationUtil = new ValidationUtil(inputUtil);
+        double doubleNumber;
+        String stringNumberGuess;
+
+        while(intNumber <0 || intNumber >100){
+            System.out.println("Invalid number.Please type one number from 0 to 100");
+            stringNumberGuess = inputUtil.getInput();
+            doubleNumber = validationUtil.validationParsable(stringNumberGuess);
+            intNumber = validationUtil.validationInt(doubleNumber);
+        }
+
+        return  intNumber;
+    }
 
 
 

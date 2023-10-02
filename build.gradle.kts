@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "com.jceloto7"
-version = "0.0.2-SNAPSHOT"
+version = "1.0.0-SNAPSHOT"
 
 repositories {
     mavenCentral()

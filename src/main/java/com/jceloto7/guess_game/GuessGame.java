@@ -9,19 +9,38 @@ public class GuessGame {
         char charOption;
         ValidationUtil validationUtil = new ValidationUtil(inputUtil);
         ScreenUtil screenUtil = new ScreenUtil();
+        GameUtil gameUtil = new GameUtil();
 
-        System.out.println("""
-               Hello! Welcome to the Guess Game.
-               Do you want to read the instructions? Please type 1 to 'yes' or 2 to 'no'""");
-        stringOption = inputUtil.getInput();
-        charOption = validationUtil.validationCharOption(stringOption);
-        if(charOption == '1'){
-            String showInstructions;
-            showInstructions = screenUtil.gameInstructions();
-            System.out.println(showInstructions);
+        try {
+            System.out.println("""
+                    Hello! Welcome to the Guess Game.
+                    Do you want to read the instructions? Please type 1 to 'yes' or 2 to 'no'""");
+
+            stringOption = inputUtil.getInput();
+            charOption = validationUtil.validationCharOption(stringOption);
+            if (charOption == '1') {
+                String showInstructions;
+                showInstructions = screenUtil.gameInstructions();
+                System.out.println(showInstructions);
+            }
+            charOption ='1';
+            while (charOption =='1') {
+                gameUtil.game();
+                System.out.println("""
+                        Do you want to play again?
+                        Please type 1 to 'yes' or 2 to 'no'.""");
+                stringOption = inputUtil.getInput();
+                charOption = validationUtil.validationCharOption(stringOption);
+            }
+        }catch (Exception ex){
+            System.out.println("An unexpected error has occurred. Please try again");
+
         }
 
-
+        inputUtil.closeScanner();
+        System.out.println("""
+                    Thanks for playing the Guess Game ^^
+                    Bye.""");
 
     }
 }
