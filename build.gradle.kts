@@ -3,7 +3,13 @@ plugins {
 }
 
 group = "com.jceloto7"
-version = "1.0.0-SNAPSHOT"
+version = "1.0.1-SNAPSHOT"
+
+tasks.jar{
+    manifest{
+        attributes["Main-Class"] = "com.jceloto7.guess_game.GuessGame"
+    }
+}
 
 repositories {
     mavenCentral()

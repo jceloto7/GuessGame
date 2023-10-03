@@ -20,7 +20,7 @@ public class GuessGame {
             charOption = validationUtil.validationCharOption(stringOption);
             if (charOption == '1') {
                 String showInstructions;
-                showInstructions = screenUtil.gameInstructions();
+                showInstructions = ScreenUtil.GAME_INSTRUCTIONS;
                 System.out.println(showInstructions);
             }
             charOption ='1';

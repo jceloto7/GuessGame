@@ -2,10 +2,7 @@ package com.jceloto7.guess_game.Util;
 
 public class ScreenUtil {
 
-    public String gameInstructions(){
-        String instructions;
-
-        instructions = """
+    public static final String GAME_INSTRUCTIONS = """
                                        GUESS NUMBER GAME RULES
                                        
                 Please, read with attention.
@@ -18,8 +15,6 @@ public class ScreenUtil {
                 
                 Good Luck! ^^""";
 
-        return instructions;
-    }
 
     public void gameTries(int tries){
         if (tries ==1){
@@ -28,7 +23,7 @@ public class ScreenUtil {
                     
                                   Try""" + " " + tries + """
                     
-                    Please type one integer number from 1 to 100:""");
+                    Please type one integer number from 0 to 100:""");
         }else if(tries >1 && tries <5){
             System.out.println("""
                                  Try"""+ " " + tries + """

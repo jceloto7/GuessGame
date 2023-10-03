@@ -20,17 +20,16 @@ public class GameUtil {
         ScreenUtil screenUtil = new ScreenUtil();
         InputUtil inputUtil = new InputUtil();
         gameNumber = getNumberUtil.getNumber();
-        GameUtil gameUtil = new GameUtil();
         boolean hint;
 
         while(guessNumber != gameNumber && tries <5){
-           tries =tries +1;
+           tries++;
            screenUtil.gameTries(tries);
            guessNumberString = inputUtil.getInput();
            doubleNumber = validationUtil.validationParsable(guessNumberString);
            intNumber = validationUtil.validationInt(doubleNumber);
            guessNumber = validationUtil.validationGame(intNumber);
-           hint = gameUtil.smallerOrBigger(guessNumber,gameNumber);
+           hint = smallerOrBigger(guessNumber,gameNumber);
            if(hint && tries<5){
                System.out.println("""
                          Wrong try :(
